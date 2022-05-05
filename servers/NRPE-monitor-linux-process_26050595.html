@@ -1,0 +1,12 @@
+<!--
+title: NRPE monitor linux process
+description: 
+published: true
+date: 2022-04-21T13:02:42.232Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T13:02:40.298Z
+-->
+
+                    <p><br></p><p><span>bash-4.2# yum install epel-release</span></p><p><span>bash-4.2# yum install -y nrpe nagios-plugins*</span></p><p>edit this file </p><p><span style="letter-spacing: 0.0px;">vim /etc/nagios/nrpe.cfg</span></p><p>Change the allowed hosts to this <span style="color: rgb(0,0,0);">and add the commands to the file that you want. This is what I added for a DNS </span><span style="color: rgb(0,0,0);">DHCP</span><span style="color: rgb(0,0,0);"> server</span></p><p><span style="color: rgb(0,0,0);">allowed_hosts=216.229.228.38, 216.229.228.41</span></p><p><span style="color: rgb(0,0,0);">command[check_dhcp]=/usr/lib64/nagios/plugins/check_procs -c 1: -C dhcpd</span></p><p><span style="color: rgb(0,0,0);">command[check_dns]=/usr/lib64/nagios/plugins/check_procs -c 1: -C named</span></p><p><br></p><p><span>-bash-4.2# systemctl restart nrpe</span></p><p><span style="color: rgb(0,0,0);">Make sure iptables or whatever firewall you are using has port </span><span style="letter-spacing: 0.0px;">5666 open from windsor. (example from breeze)</span></p><p><span>bash-4.2# vim /etc/sysconfig/iptables</span></p><p><span># nrpe for nagios</span></p><p><span>-A INPUT -s 216.229.228.38 -d 10.9.0.8 -p tcp -m tcp --d</span><span>port</span><span> 5666 -j ACCEPT</span></p><p><span><br></span></p><p><span>bash-4.2# systemctl restart iptables</span></p><p><span><br></span></p><p><span><span style="color: rgb(0,0,0);">Next create your process on nagios using the check_nrpe command with the command that you created in the nape.cfg file.</span></span></p><p><span><br></span></p><p><span>If the service is already configured in windsor. You can just add the host to the service.</span></p><p><br></p><p><br></p>
+                    

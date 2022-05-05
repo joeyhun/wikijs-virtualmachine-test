@@ -1,0 +1,12 @@
+<!--
+title: Install Guide
+description: 
+published: true
+date: 2022-04-21T13:00:32.653Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T13:00:30.757Z
+-->
+
+                    <p><span>Follow the Linux server setup guid here. </span><a href="http://documentation.intranet.southern.edu/display/NET/Linux+server+setup+guideline" class="external-link" rel="nofollow">Linux server setup guideline</a></p><p>Installed the following packages: dhcp, bind-chroot, open-vm-tools</p><p>Added &quot;net.ifnames=0 biosdevname=0&quot; to /etc/default/grub and then ran grub2-mkconfig -o /boot/grub2/grub.cfg to &quot;publish&quot; the changes (This setting allows eth0,eth1 interfaces).</p><p>installed tcpdump <strong>yum install tcpdump -y</strong></p><p class="p2"><span class="s1">Made the following directories:</span></p><ul class="ul1"><li class="li2"><span class="s1">/var/named/chroot/var/named/master/</span></li><li class="li2"><span class="s1">/var/named/chroot/var/named/slaves/</span></li><li class="li2"><span class="s1">/var/named/chroot/var/named/view/</span></li><li class="li2"><span class="s1">/var/named/chroot/etc/namedb/dynamic/</span></li></ul><p>installed mlocate (allows locate and updatedb commands)</p><p> </p><p>set up ntp client to point to 216.229.224.4</p><p> </p>
+                    

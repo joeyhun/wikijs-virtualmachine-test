@@ -1,0 +1,12 @@
+<!--
+title: RTMT Call Processing Node CPU Pegging Alerts
+description: 
+published: true
+date: 2022-04-21T13:04:24.465Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T13:04:22.572Z
+-->
+
+                    <p><strong>Restart DRF Services</strong></p><p>     SSH into Callmanager to use CLI</p><p><br></p><p>           can restart these two services without issue;</p><p>           utils service restart</p><p>          Cisco DRF Local</p><p>          Cisco DRF Master</p><p><br></p><p><br></p><ul style="margin-left: 15.0px;"><li><p><strong>admin:</strong><em>utils service restart Cisco DRF Master</em></p></li><li><p><strong>admin:</strong><em>utils service restart Cisco DRF Local</em></p></li></ul><p><br></p><p class="p1"><span class="s1">If it is occuring randomly then we require detailed cucm traces as well as  </span>RisDC perfmon logs to check what is triggering the spike in CPU  </p><p class="p1"><span class="s1">If the alerts are happening at a specific time of the day then it could be due to some scheduled activity like DRS backup, MWI sync, CDR Load etc. Please check the output of the following commands to see if there are any core dumps or other resource issues</span></p><p class="p1"><span class="s1">utils core active list</span></p><p class="p1">utils diagnose test</p><p class="p1">utils service list </p><p class="p1"><br></p><p class="p1"><span class="s1"><br></span></p>
+                    

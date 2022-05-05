@@ -1,0 +1,12 @@
+<!--
+title: How to fix old time clocks
+description: 
+published: true
+date: 2022-04-21T13:00:15.454Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T13:00:13.567Z
+-->
+
+                    <p><br></p><p>Log into cinelli</p><p> run  <span style="letter-spacing: 0.0px;">[root@? bin]# </span><em style="letter-spacing: 0.0px;">ps -auxwww | grep java</em></p><p>This is the results</p><p>root 28077 5.5 1.9 718524 19732 pts/0 S 08:31 0:00 /usr/java/jre1.5.0_06/bin/java -server -Xmx512M -Dfile.encoding=ISO-8859-1 -classpath /usr/local/java/lib:../lib/activation.jar:../lib/asjava.jar:../lib/asjava_p.jar:../lib/CardTransfer.jar:../lib/ftpbean.jar:../lib/jcifs-1.3.0.jar:../lib/jtds-1.2.jar:../lib/mail.jar:../lib/mysql-connector-java-3.0.6-stable-bin.jar:../lib/pdflib.jar:../lib/sauutil.jar:../lib/simple-core-2.8.1.jar:../lib/SyncPlugin.jar:../lib/SyncServer.jar:../lib/SyncSlave.jar:../lib/t:../lib/TAS.jar:../lib/TAS.java:../lib/WarehouseTransfer.jar:../lib/wim.jar:../lib/withdrawList.class edu.southern.tas.TAS<br>root 28121 99.9 3.6 731724 37920 pts/0 S 08:31 0:14 /usr/java/jre1.5.0_06/bin/java -server -Xmx512M -Dfile.encoding=ISO-8859-1 -classpath /usr/local/java/lib:../lib/activation.jar:../lib/asjava.jar:../lib/asjava_p.jar:../lib/CardTransfer.jar:../lib/ftpbean.jar:../lib/jcifs-1.3.0.jar:../lib/jtds-1.2.jar:../lib/mail.jar:../lib/mysql-connector-java-3.0.6-stable-bin.jar:../lib/pdflib.jar:../lib/sauutil.jar:../lib/simple-core-2.8.1.jar:../lib/SyncPlugin.jar:../lib/SyncServer.jar:../lib/SyncSlave.jar:../lib/t:../lib/TAS.jar:../lib/TAS.java:../lib/WarehouseTransfer.jar:../lib/wim.jar:../lib/withdrawList.class -Dedu.southern.wim.server.port=80 -Dedu.southern.wim.repositorycache=true -Djava.security.policy=<a href="file:///usr/local/java/bin/wim.policy" class="external-link" rel="nofollow">file:///usr/local/java/bin/wim.policy</a> -Dedu.southern.wim.superid=44 -Dfile.encoding=ISO-8859-1 -Dedu.southern.wim.repositoryupd=false edu.southern.wim.WIM -mx=1024M</p><p><br></p><p>Now you need to restart the TAS and WIM service. First kill each process and then start the services with the start_tas and start_wim scripts located in the /us/local/java/bin folder.</p><pre><br/></pre><pre>killall java<br/>cd /usr/local/java/bin<br/>./start_tas<br/>./start_wim</pre><pre><br/><br/></pre><p><span style="letter-spacing: 0.0px;"><br></span></p><p><span style="letter-spacing: 0.0px;">Now check the time clocks</span></p>
+                    

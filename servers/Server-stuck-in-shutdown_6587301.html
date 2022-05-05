@@ -1,0 +1,12 @@
+<!--
+title: Server stuck in shutdown
+description: 
+published: true
+date: 2022-04-21T13:05:52.116Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T13:05:50.255Z
+-->
+
+                    <p>If a machine is running Windows, but isn't accessible with RDP, it can be restarted with the following command:</p><blockquote><p><code>shutdown /r /m \\computername</code></p></blockquote><p>If it responds with the following error, use PSKill (available from Microsoft).<br><code>&quot;A system shutdown is in progress.(1115)</code>&quot;</p><p>Similar to pulling the power plug:<br><code>pskill \\computername winlogon</code></p><p>If the server has gone unresponsive after installing updates, try running:<br><code>pskill \\computername trustedinstaller<br></code></p>
+                    

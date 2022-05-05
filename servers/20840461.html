@@ -1,0 +1,12 @@
+<!--
+title: the (Voice) message is not currently available
+description: 
+published: true
+date: 2022-04-21T12:54:24.029Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T12:54:22.070Z
+-->
+
+                    <p><span style="color: rgb(88,88,91);">All of a sudden, no environment changes, users are unable to access their voicemails. Dialing into the voicemail pilot we receive the message... &quot;The message is not currently available&quot;. For example, I have the MWI light lit on my 7962 phone or saved messages, I press voicemail button, i'm asked to and enter my PIN #, then I'm told I have 2 voice messages or 2 saved messages. I press the button it tells me to to play the message. Once I press the button the assistant says, &quot;first voice message... says the person name of who left the message and then system says &quot;the message is not currently available&quot;. This is does not happen every time tho... I am not seeing any down services in Unity Connection Serviceability.</span></p><p style="margin-left: 30.0px;">Collect the output of following commands from the CLI of both severs:</p><p style="margin-left: 30.0px;">“show status”</p><p style="margin-left: 30.0px;">“show cuc cluster status”</p><p style="margin-left: 30.0px;">“utils dbreplication runtimestate”</p><p style="margin-left: 30.0px;">“utils ntp status”</p><p style="margin-left: 30.0px;">“run cuc dbquery unitymbxdb1 select count(*)from tbl_message”</p><p style="margin-left: 30.0px;">The table count is different on publisher and subscriber.</p><p style="margin-left: 30.0px;">Nicolai - admin:run cuc dbquery unitymbxdb1 select count(*) from tbl_message</p><p style="margin-left: 30.0px;">(count(*))<br>----------<br><strong>1165</strong></p><p style="margin-left: 30.0px;">Hillman - admin:run cuc dbquery unitymbxdb1 select count(*) from tbl_message</p><p style="margin-left: 30.0px;">(count(*))<br>----------<br><strong>1150</strong></p><p style="margin-left: 30.0px;">Subscriber has less data than publisher and we will have to rectify it.</p><p><strong><span style="color: rgb(31,73,125);">Run “utils cuc cluster overwritedb” on sub and after the successful completion of this command the subscriber will reboot automatically.</span></strong></p><p style="text-align: left;"><span style="color: rgb(31,73,125);">It happens due to replication issue between the servers which could be due to NTP, network loss (Time Change on Saturday night)</span></p><p style="margin-left: 30.0px;"><br></p>
+                    

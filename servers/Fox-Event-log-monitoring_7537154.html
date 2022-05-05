@@ -1,0 +1,12 @@
+<!--
+title: Fox Event log monitoring
+description: 
+published: true
+date: 2022-04-21T12:59:08.543Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T12:59:06.617Z
+-->
+
+                    <p>All new servers that should have windows event log monitoring need to be added to a windows group called &quot;Server-Auditing&quot; located in Groups-Users OU. Once the computer object is a member of the server-auditing group, it will have the permissions needed to read and apply the &quot;Server Auditing&quot; GPO in active directory that is published in the servers and domain controllers OU.</p><p>Besides what events to monitor, specified in the GPO, the GPO also instructs the servers to point to fox for event subscription details.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/7537154/7537153.png" data-image-src="attachments/7537154/7537153.png" data-unresolved-comment-count="0" data-linked-resource-id="7537153" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2016-05-24 at 1.24.20 PM.png" data-base-url="https://docs.intranet.southern.edu:8443" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7537154" data-linked-resource-container-version="5"></span></p><p> </p><p>The event subscription in Fox is currently set to subscribe to all windows events in the local Security and System event log.</p><p>After the windows event logs aggregate onto the Fox server, I configured the windows event log &quot;Forwarded Events&quot;, where the events get dumped, to be located on the D Drive, which is stripped/mirrored on the 15k rpm disks.</p><p>After 24 hours, the logs get moved over to C:\Windows_Archive\, of which, they stay for 3 days before being deleted.</p><p>Per day, we store about 43 GB of windows event logs. In the event of a server compromise, these events will be <u>invaluable</u></p><p>TODO: configure the powershell script (D:\DeleteOld.ps1) to compress the data so we can keep the windows event logs longer.</p>
+                    

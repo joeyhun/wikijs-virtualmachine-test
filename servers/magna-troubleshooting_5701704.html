@@ -1,0 +1,12 @@
+<!--
+title: magna troubleshooting
+description: 
+published: true
+date: 2022-04-21T13:09:19.587Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T13:09:17.698Z
+-->
+
+                    <p class="p1"><span class="s1">Disk usage problem: sharepoint web startup script leaves temporary files that build up and take up disk space.</span></p><p class="p1"><span class="s1">Delete all files in C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\Windows\INetCache\IE\ and C:\Windows\SysWow64\config\systemprofile\AppData\Local\Microsoft\Windows\INetCache\IE\</span></p><p class="p1"><span class="s1">In some cases, I've had to use command prompt &quot;DEL /F *&quot; within the directory to delete the files, because explorer was unresponsive when trying to delete the files.</span></p><p class="p1"><span class="s1"><strong>Important</strong>: To reduce interruption to the user when performing NLB failover, ensure that you run SPBestWarmUp task in the Task Scheduler prior to making the host live..this will load the web applications before hand. Otherwise the end user will have to wait 30+ seconds as the web apps load.</span></p>
+                    

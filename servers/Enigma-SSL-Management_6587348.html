@@ -1,0 +1,12 @@
+<!--
+title: Enigma SSL Management
+description: 
+published: true
+date: 2022-04-21T12:58:50.994Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T12:58:49.044Z
+-->
+
+                    <p>The Tomcat SSL Keystore is located at C:\Program Files\Apache Software Foundation\Tomcat 7.0\ssl\tomcat7.jks</p><p>Open (Administrator) command line and navigate to C:\Program Files\Java\jre7\bin\</p><p>NOTE: The Keystore password is &quot;changeit&quot; (default amongst most Java keystores)</p><p>IMPORTANT: Remember to backup the keystore before making any changes!</p><h3 id="EnigmaSSLManagement-Toviewallkeystorecertificates">To view all keystore certificates</h3><p>Run: keytool.exe -list -v -keystore &quot;C:\Program Files\Apache Software Foundation\Tomcat 7.0\ssl\tomcat7.jks&quot;</p><p>(Optionally add -Alias certalias to view only one certificate)</p><h3 id="EnigmaSSLManagement-ToDeleteacertificateinthekeystore">To Delete a certificate in the keystore</h3><p>Run: keytool.exe -delete -alias aliasname -keystore &quot;C:\Program Files\Apache Software Foundation\Tomcat 7.0\ssl\tomcat7.jks&quot;</p><h3 id="EnigmaSSLManagement-GenerateCSRforexistingcertificateinkeystore">Generate CSR for existing certificate in keystore</h3><p>Run: keytool.exe -<span style="color: rgb(102,102,102);">certreq</span> -alias tomcat -keystore &quot;C:\Program Files\Apache Software Foundation\Tomcat 7.0\ssl\tomcat7.jks&quot; -file C:\tomcat.csr</p><h3 id="EnigmaSSLManagement-Installnewcertificateinkeystore">Install new certificate in keystore</h3><p>Run: keytool.exe -<span style="color: rgb(102,102,102);">import <code>-trustcacerts</code></span> -alias tomcat -file certificate.pem -keystore &quot;C:\Program Files\Apache Software Foundation\Tomcat 7.0\ssl\tomcat7.jks&quot;</p><h3 id="EnigmaSSLManagement-Currenttomcat7.jkskeystorecertificatealiases/names">Current tomcat7.jks keystore certificate aliases/names</h3><p><s>one - Starfield Root Certificate Authority - G2</s></p><p><s>two - Starfield Class 2 Certification Authority (SHA256withRSA)</s></p><p><s>three - Starfield Class 2 Certification Authority (SHA1withRSA)</s></p><p>four - (current CA)</p><p>five - (current CA)</p><p>tomcat - enigma.intranet.southern.edu Certificate with Private Key</p>
+                    

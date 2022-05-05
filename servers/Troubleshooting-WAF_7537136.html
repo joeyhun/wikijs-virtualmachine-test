@@ -1,0 +1,12 @@
+<!--
+title: Troubleshooting WAF
+description: 
+published: true
+date: 2022-04-21T13:07:25.225Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T13:07:23.306Z
+-->
+
+                    <p>Ensure that the WAF servers are correctly configured with regard to memory usage so that if too many requests come in, the server does not begin to thrash to swap.</p><p>All apache access logs are exported by splunk to the splunk index called waf. All error logs (including mod_security logs) are sent to the wafblock index.</p><p> </p><h4 id="TroubleshootingWAF-RevertingConfiguration">Reverting Configuration</h4><p class="p1"><span class="s1">Use &quot;git log&quot; to view recent commits</span></p><p class="p1"><span class="s1">Use &quot;git revert &lt;SHA of commit&gt;&quot; to revert to a previous configuration</span></p><p class="p1"><span class="s1">This will likely show an error about a conflict, just make the necessary changes to the file in question and then issue another commit with: git commit -am &quot;recovered&quot;</span></p><p class="p1"><span class="s1">Use &quot;git log -p&quot; to view added/removed files in each commit</span></p><p class="p1"><span class="s1"><br></span></p><h4 class="p1" id="TroubleshootingWAF-CheckVIPStatus"><span class="s1">Check VIP Status</span></h4><p class="p1"><span class="s1">Open the Fortigate firewall GUI and navigate to Policy &amp; Objects -&gt; Monitor -&gt; Load Balance Monitor and ensure all the servers are up (related to 216.229.224.106:80 and 216.229.224.106:443)</span></p><p class="p1"><span class="s1"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/7537136/7537135.png" data-image-src="attachments/7537136/7537135.png" data-unresolved-comment-count="0" data-linked-resource-id="7537135" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2016-05-24 at 9.00.23 AM.png" data-base-url="https://docs.intranet.southern.edu:8443" data-linked-resource-content-type="image/png" data-linked-resource-container-id="7537136" data-linked-resource-container-version="1"></span></span></p><p class="p1"><span class="s1">Also note, this is where you can gracefully stop/start VIP real servers.</span></p>
+                    

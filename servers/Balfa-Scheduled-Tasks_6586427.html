@@ -1,0 +1,12 @@
+<!--
+title: Balfa Scheduled Tasks
+description: 
+published: true
+date: 2022-04-21T12:55:24.418Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-04-21T12:55:22.497Z
+-->
+
+                    <h3 id="BalfaScheduledTasks-WindowsUpdateDeployment">Windows Update Deployment</h3><ul><li>The Software Update Point synchronizes with Microsoft every day at 12:00am (this updates the windows update catalog)</li><li>SCCM Deploys new updates the Wednesday after patch Tuesday at <strong>3:26pm</strong> (this downloads the updates to SCCM and pushes them out to workstations)</li><li>Workstations are configured to scan for new updates (pull) from SCCM <strong>every Wednesday at 3:40pm. </strong>Software deployment re-evaluation occurs every Wednesday at 5:00pm</li><li>SCCM will give the user a warning that the computer needs to restart, and give them <strong>5 hours</strong> before a forced reboot is done</li><li>Any updates not installed in the first maintenance window, will run every Wednesday evening until no more maintenance is required</li></ul><p>The &quot;User Experience&quot; tab is specifically set to allow system restart if the updates need it because Users do not regularly restart their machines, <u>which will lead to a buildup of updates never being able to install.</u></p><p>A maintenance window is also NOT defined, since updates would be missed because we do not use wake on lan and we have mobile workstations as well.</p><h3 id="BalfaScheduledTasks-HardwareInventory">Hardware Inventory</h3><p>Hardware/software inventory is run every Friday at 11am</p>
+                    
